@@ -2,7 +2,7 @@
 
 import { useState, useRef, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
-import { Send, Mic, MicOff, Volume2, VolumeX, Sparkles, Plus, User, Bot } from "lucide-react";
+import { Send, Volume2, VolumeX } from "lucide-react";
 
 export default function ContactSection() {
     const [messages, setMessages] = useState<{ role: "user" | "model"; text: string }[]>([
@@ -78,7 +78,7 @@ export default function ContactSection() {
                 // speak(responseText); // Optional: keep fallback or just be silent
             }
 
-        } catch (error) {
+        } catch {
             const errorText = "Network error. Please try again.";
             setMessages(prev => [...prev, { role: "model", text: errorText }]);
             // speak(errorText);
@@ -140,7 +140,7 @@ export default function ContactSection() {
                             >
                                 <h3 className="text-2xl font-light text-neutral-400">Hello!</h3>
                                 <p className="text-3xl md:text-4xl font-bold bg-clip-text text-transparent bg-gradient-to-r from-white via-neutral-200 to-neutral-500 leading-tight">
-                                    I am Karen, Hashintha's personal AI Assistant. How can I assist you today?
+                                    I am Karen, Hashintha&apos;s personal AI Assistant. How can I assist you today?
                                 </p>
                             </motion.div>
                         ) : (
@@ -153,7 +153,7 @@ export default function ContactSection() {
                             >
                                 {/* User Question */}
                                 <p className="text-lg md:text-xl text-neutral-500 font-medium">
-                                    "{messages[messages.length - 2]?.text}"
+                                    &quot;{messages[messages.length - 2]?.text}&quot;
                                 </p>
 
                                 {/* AI Answer */}

@@ -6,7 +6,6 @@ import NextSection from "@/src/components/NextSection";
 import HorizontalAbout from "@/src/components/HorizontalAbout";
 import WorkSection from "@/src/components/WorkSection";
 import ContactSection from "@/src/components/ContactSection";
-import BlobCursor from "@/src/components/BlobCursor";
 
 export default function Home() {
   return (
@@ -26,6 +25,7 @@ export default function Home() {
             iconSize={0}
             fullScreen
             cardGap="0"
+            // eslint-disable-next-line @typescript-eslint/no-explicit-any
             aspectRatio={null as any}
             borderRadius={0}
             cards={[

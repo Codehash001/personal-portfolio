@@ -74,6 +74,7 @@ export async function POST(req: Request) {
                             },
                         },
                     },
+                // eslint-disable-next-line @typescript-eslint/no-explicit-any
                 } as any,
             });
 

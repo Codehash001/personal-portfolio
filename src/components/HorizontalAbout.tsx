@@ -73,7 +73,7 @@ export default function HorizontalAbout() {
               <span className="text-neutral-600">Me.</span>
             </h3>
             <p className="mt-8 text-neutral-400 text-xl md:text-2xl max-w-[400px] leading-relaxed relative z-10">
-              I am <span className="text-white font-semibold">Hashintha Nishsanka</span>. I don't just write code; I engineer experiences that define brands.
+              I am <span className="text-white font-semibold">Hashintha Nishsanka</span>. I don&apos;t just write code; I engineer experiences that define brands.
             </p>
 
             {/* Decorative background blur */}

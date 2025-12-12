@@ -1,8 +1,5 @@
 "use client";
 
-import dynamic from 'next/dynamic';
-
-const Antigravity = dynamic(() => import('./Antigravity'), { ssr: false });
 
 export default function Footer() {
     return (

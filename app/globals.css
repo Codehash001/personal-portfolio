@@ -252,3 +252,16 @@ body {
 .scrollbar-hide::-webkit-scrollbar {
   display: none;
 }
+
+/* AI Answer scroll container */
+.ai-answer-scroll {
+  overflow-y: scroll !important;
+  -webkit-overflow-scrolling: touch;
+  touch-action: pan-y;
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+
+.ai-answer-scroll::-webkit-scrollbar {
+  display: none;
+}

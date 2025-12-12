@@ -6,6 +6,7 @@ import NextSection from "@/src/components/NextSection";
 import HorizontalAbout from "@/src/components/HorizontalAbout";
 import WorkSection from "@/src/components/WorkSection";
 import ContactSection from "@/src/components/ContactSection";
+import Footer from "@/src/components/Footer";
 
 export default function Home() {
   return (
@@ -55,6 +56,7 @@ export default function Home() {
       <HorizontalAbout />
       <WorkSection />
       <ContactSection />
+      <Footer />
     </div>
   );
 }

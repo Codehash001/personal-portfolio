@@ -96,21 +96,19 @@ function ProjectCard({ work, index }: { work: typeof works[0]; index: number }) 
                 }`}
         >
             {/* Image Container */}
-            <div className="w-full md:w-3/5 aspect-video relative overflow-hidden rounded-3xl bg-neutral-900 border border-white/10 group-hover:border-white/20 transition-colors">
-                {/* Parallax Image Content */}
-                <motion.div
-                    style={{ y: yImage }}
-                    className="absolute inset-0 group-hover:scale-105 transition-transform duration-700 origin-top"
-                >
+            <div className="w-full md:w-3/5 relative overflow-hidden rounded-lg bg-neutral-900 border border-white/10 group-hover:border-white/20 transition-colors">
+                {/* Image Content */}
+                <div className="relative w-full group-hover:scale-[1.02] transition-transform duration-700">
                     <Image
                         src={work.image}
                         alt={work.title}
-                        fill
-                        className="object-cover opacity-60"
+                        width={1200}
+                        height={800}
+                        className="w-full h-auto"
                         sizes="(max-width: 768px) 100vw, 60vw"
                     />
-                </motion.div>
-                <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent" />
+                </div>
+                <div className="absolute inset-0 bg-gradient-to-t from-black/30 via-transparent to-transparent pointer-events-none" />
 
                 {/* Overlay Button */}
                 <div className="absolute inset-0 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-300">

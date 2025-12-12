@@ -1,6 +1,7 @@
 "use client";
 
 import Link from "next/link";
+import Image from "next/image";
 import { motion, easeOut } from "framer-motion";
 import { ArrowUpRight } from 'lucide-react';
 import { useEffect, useState } from "react";
@@ -49,8 +50,13 @@ export default function Navbar() {
             className="font-michroma text-sm tracking-widest uppercase text-white"
           >
             <Link href="#home" className="select-none">
-              {/* Replace with your logo image if needed */}
-              <span>LOGO</span>
+              <Image
+                src="/images/H-Logo.png"
+                alt="Logo"
+                width={80}
+                height={40}
+                className="h-10 w-auto"
+              />
             </Link>
           </motion.div>
 

@@ -81,7 +81,10 @@ export async function POST(req: Request) {
             if (ttsResult.response.candidates && ttsResult.response.candidates[0].content.parts) {
                 const audioPart = ttsResult.response.candidates[0].content.parts.find(part => part.inlineData);
                 if (audioPart && audioPart.inlineData) {
-                    audioData = audioPart.inlineData.data;
+                    audioData = {
+                        data: audioPart.inlineData.data,
+                        mimeType: audioPart.inlineData.mimeType || "audio/L16;rate=24000"
+                    };
                 }
             }
         } catch (ttsError) {

@@ -241,7 +241,7 @@ export default function ContactSection() {
             <div className="absolute inset-0 bg-gradient-to-tr from-purple-900/10 via-black to-blue-900/10" />
 
             {/* Main Container - Fixed height layout */}
-            <div className="relative z-10 w-full max-w-4xl flex flex-col items-center h-[70vh]">
+            <div className="relative z-10 w-full max-w-4xl flex flex-col items-center h-[90vh]">
 
                 {/* Top section: Orb + Text (flexible) */}
                 <div className="flex-1 flex flex-col items-center justify-center gap-6 w-full">

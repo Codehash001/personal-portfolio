@@ -105,14 +105,14 @@ export default function HorizontalAbout() {
             onDragEnd={handleDragEnd}
             className="flex items-center justify-center cursor-grab active:cursor-grabbing"
           >
-            {allCards[currentIndex].type === "header" ? (
+            {currentIndex === 0 ? (
               // Header Card for Mobile
               <div className="relative w-full max-w-[320px] flex flex-col justify-center px-4 py-8">
                 <div className="absolute top-0 left-0 w-16 h-16 border-t-2 border-l-2 border-neutral-800 rounded-tl-2xl opacity-50" />
                 <div className="absolute bottom-0 right-0 w-16 h-16 border-b-2 border-r-2 border-neutral-800 rounded-br-2xl opacity-50" />
                 <h3 className="font-sans text-5xl font-bold text-white tracking-tighter leading-none">
-                  {allCards[currentIndex].title} <br />
-                  <span className="text-neutral-600">{allCards[currentIndex].titleSpan}</span>
+                  About <br />
+                  <span className="text-neutral-600">Me.</span>
                 </h3>
                 <p className="mt-6 text-neutral-400 text-lg leading-relaxed">
                   I am <span className="text-white font-semibold">Hashintha Nishsanka</span>. I don&apos;t just write code; I engineer experiences that define brands.

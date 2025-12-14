@@ -1,7 +1,7 @@
 "use client";
 
-import { motion, useScroll, useTransform } from "framer-motion";
-import { useRef } from "react";
+import { motion, useScroll, useTransform, AnimatePresence } from "framer-motion";
+import { useRef, useState } from "react";
 import { GraduationCap, Briefcase, Code, Share2, Github, Linkedin, Mail } from "lucide-react";
 
 const cards = [
@@ -50,16 +50,100 @@ const cards = [
   },
 ];
 
+const allCards = [
+  {
+    id: 0,
+    type: "header" as const,
+    title: "About",
+    titleSpan: "Me.",
+    description: "I am Hashintha Nishsanka. I don't just write code; I engineer experiences that define brands.",
+  },
+  ...cards,
+];
+
 export default function HorizontalAbout() {
   const targetRef = useRef<HTMLDivElement>(null);
+  const [currentIndex, setCurrentIndex] = useState(0);
   const { scrollYProgress } = useScroll({
     target: targetRef,
   });
 
   const x = useTransform(scrollYProgress, [0, 1], ["0%", "-55%"]);
 
+  const nextCard = () => {
+    setCurrentIndex((prev) => (prev + 1) % allCards.length);
+  };
+
+  const prevCard = () => {
+    setCurrentIndex((prev) => (prev - 1 + allCards.length) % allCards.length);
+  };
+
+  const handleDragEnd = (_: unknown, info: { offset: { x: number } }) => {
+    if (info.offset.x < -50) {
+      nextCard();
+    } else if (info.offset.x > 50) {
+      prevCard();
+    }
+  };
+
   return (
-    <section ref={targetRef} className="relative h-[300vh] bg-black">
+    <>
+    {/* Mobile Swipeable View */}
+    <section id="about" className="md:hidden h-screen bg-black px-4 relative z-10 flex flex-col justify-between py-20">
+      {/* Card Container */}
+      <div className="flex-1 flex items-center justify-center">
+        <AnimatePresence mode="wait">
+          <motion.div
+            key={currentIndex}
+            initial={{ opacity: 0, x: 100 }}
+            animate={{ opacity: 1, x: 0 }}
+            exit={{ opacity: 0, x: -100 }}
+            transition={{ duration: 0.3, ease: "easeInOut" }}
+            drag="x"
+            dragConstraints={{ left: 0, right: 0 }}
+            dragElastic={0.2}
+            onDragEnd={handleDragEnd}
+            className="flex items-center justify-center cursor-grab active:cursor-grabbing"
+          >
+            {allCards[currentIndex].type === "header" ? (
+              // Header Card for Mobile
+              <div className="relative w-full max-w-[320px] flex flex-col justify-center px-4 py-8">
+                <div className="absolute top-0 left-0 w-16 h-16 border-t-2 border-l-2 border-neutral-800 rounded-tl-2xl opacity-50" />
+                <div className="absolute bottom-0 right-0 w-16 h-16 border-b-2 border-r-2 border-neutral-800 rounded-br-2xl opacity-50" />
+                <h3 className="font-sans text-5xl font-bold text-white tracking-tighter leading-none">
+                  {allCards[currentIndex].title} <br />
+                  <span className="text-neutral-600">{allCards[currentIndex].titleSpan}</span>
+                </h3>
+                <p className="mt-6 text-neutral-400 text-lg leading-relaxed">
+                  I am <span className="text-white font-semibold">Hashintha Nishsanka</span>. I don&apos;t just write code; I engineer experiences that define brands.
+                </p>
+                <div className="absolute -right-10 -bottom-10 w-40 h-40 bg-white/5 rounded-full blur-3xl pointer-events-none" />
+              </div>
+            ) : (
+              // Feature Card for Mobile
+              <MobileCard card={allCards[currentIndex] as typeof cards[0]} />
+            )}
+          </motion.div>
+        </AnimatePresence>
+      </div>
+
+      {/* Navigation Dots - at bottom with gap */}
+      <div className="flex justify-center gap-2">
+        {allCards.map((_, i) => (
+          <button
+            key={i}
+            onClick={() => setCurrentIndex(i)}
+            className={`w-2 h-2 rounded-full transition-all duration-300 ${
+              i === currentIndex ? "bg-white w-6" : "bg-white/30"
+            }`}
+            aria-label={`Go to card ${i + 1}`}
+          />
+        ))}
+      </div>
+    </section>
+
+    {/* Desktop Horizontal Scroll View */}
+    <section ref={targetRef} className="relative h-[300vh] bg-black hidden md:block">
       <div className="sticky top-0 flex h-screen items-center overflow-hidden">
         <motion.div style={{ x }} className="flex gap-8 p-8 md:gap-16 md:p-32 pl-16">
 
@@ -158,5 +242,72 @@ export default function HorizontalAbout() {
         </motion.div>
       </div>
     </section>
+    </>
+  );
+}
+
+// Mobile Card Component
+function MobileCard({ card }: { card: typeof cards[0] }) {
+  return (
+    <div
+      className={`relative h-[450px] w-full max-w-[320px] overflow-hidden rounded-[2rem] bg-neutral-900 border border-white/10`}
+    >
+      <div className={`absolute inset-0 bg-gradient-to-b ${card.gradient} opacity-60`} />
+      <div className={`absolute inset-0 ${card.pattern} opacity-50`} />
+      <div className="absolute -top-12 -right-12 w-48 h-48 bg-white/5 rounded-full blur-[80px]" />
+
+      <div className="relative z-10 flex h-full flex-col p-8">
+        <div className="flex items-start justify-between mb-auto">
+          <div className="p-3 bg-white/5 rounded-2xl border border-white/10 backdrop-blur-md">
+            {card.icon}
+          </div>
+          {card.date && (
+            <span className="px-3 py-1 text-xs font-mono text-neutral-400 border border-white/10 rounded-full bg-black/20 uppercase tracking-widest">
+              {card.date}
+            </span>
+          )}
+        </div>
+
+        <div className="space-y-4">
+          {card.stats && (
+            <div className="mb-2">
+              <span className="block text-6xl font-bold text-white tracking-tighter tabular-nums bg-gradient-to-br from-white to-white/40 bg-clip-text text-transparent">
+                {card.stats}
+              </span>
+              <span className="text-sm font-medium text-emerald-400 uppercase tracking-wider">{card.statsLabel}</span>
+            </div>
+          )}
+
+          <div>
+            <h4 className="font-sans text-2xl font-bold text-white mb-1">{card.title}</h4>
+            {card.subtitle && <p className="text-neutral-400 text-sm font-mono mb-2">{card.subtitle}</p>}
+          </div>
+
+          <p className="text-base text-neutral-300 leading-relaxed font-light">
+            {card.description}
+          </p>
+
+          {card.tags && (
+            <div className="flex flex-wrap gap-2 mt-3">
+              {card.tags.map(tag => (
+                <span key={tag} className="px-3 py-1 text-sm bg-white/5 border border-white/10 rounded-lg text-neutral-300">
+                  {tag}
+                </span>
+              ))}
+            </div>
+          )}
+
+          {card.links && (
+            <div className="flex gap-3 mt-4">
+              {card.links.map((link, i) => (
+                <a key={i} href={link.href} className="p-3 bg-white/5 hover:bg-white/20 rounded-full transition-colors border border-white/10 text-white">
+                  {link.icon}
+                </a>
+              ))}
+            </div>
+          )}
+        </div>
+      </div>
+    </div>
   );
 }

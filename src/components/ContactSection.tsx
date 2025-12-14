@@ -219,10 +219,10 @@ export default function ContactSection() {
                 className="relative z-10 w-full max-w-4xl mb-32 px-4"
             >
                 <div className="mb-16">
-                    <h2 className="text-5xl md:text-7xl font-bold text-white leading-tight">
+                    <h2 className="text-5xl md:text-8xl font-bold text-white leading-tight">
                         Let&apos;s
                     </h2>
-                    <h2 className="text-5xl md:text-7xl font-bold text-neutral-600 italic leading-tight">
+                    <h2 className="text-5xl md:text-8xl font-bold text-neutral-600 italic leading-tight">
                         Connect.
                     </h2>
                 </div>

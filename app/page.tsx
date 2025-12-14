@@ -37,7 +37,7 @@ export default function Home() {
                     line1="BEYOND THE"
                     line2="BROWSER"
                     duration={2400}
-                    className="mt-8 md:-ml-6 px-4 overflow-hidden max-w-[100vw] font-sans text-white"
+                    className="mt-32 md:mt-8 md:-ml-6 px-4 overflow-hidden max-w-[100vw] font-sans text-white"
                     lineClassName="text-[11vw] md:text-[8vw] xl:text-[10vw] font-bold tracking-tight md:tracking-normal"
                     gapClass="block mt-1 md:mt-0"
                   />
@@ -52,8 +52,12 @@ export default function Home() {
       {/* Spacer in normal flow so nothing overlays the hero */}
       <div className="h-[100vh]" aria-hidden="true" />
       {/* Next section follows in normal flow */}
-      <NextSection />
-      <HorizontalAbout />
+      <div className="relative z-10">
+        <NextSection />
+      </div>
+      <div className="relative z-10">
+        <HorizontalAbout />
+      </div>
       <WorkSection />
       <ContactSection />
       <Footer />

@@ -2,14 +2,28 @@
 
 import Link from "next/link";
 import Image from "next/image";
-import { motion, easeOut } from "framer-motion";
+import { motion, easeOut, useMotionValueEvent, useScroll } from "framer-motion";
 import { ArrowUpRight } from 'lucide-react';
-import { useEffect, useState } from "react";
+import { useEffect, useState, useRef } from "react";
+import StaggeredMenu from "./StaggeredMenu";
 
 const navItems = [
   { href: "#home", label: "Home" },
   { href: "#about", label: "About" },
   { href: "#work", label: "Work" },
+];
+
+const menuItems = [
+  { label: 'Home', ariaLabel: 'Go to home section', link: '#home' },
+  { label: 'About', ariaLabel: 'Learn about me', link: '#about' },
+  { label: 'Work', ariaLabel: 'View my work', link: '#work' },
+  { label: 'Contact', ariaLabel: 'Get in touch', link: '#contact' }
+];
+
+const socialItems = [
+  { label: 'Twitter', link: 'https://twitter.com' },
+  { label: 'GitHub', link: 'https://github.com' },
+  { label: 'LinkedIn', link: 'https://linkedin.com' }
 ];
 
 const logoVariants = {
@@ -28,6 +42,20 @@ const itemVariants = {
 
 export default function Navbar() {
   const [ready, setReady] = useState(false);
+  const [hidden, setHidden] = useState(false);
+  const lastScrollY = useRef(0);
+  const { scrollY } = useScroll();
+
+  useMotionValueEvent(scrollY, "change", (latest) => {
+    const diff = latest - lastScrollY.current;
+    if (diff > 10 && latest > 100) {
+      setHidden(true);
+    } else if (diff < -10) {
+      setHidden(false);
+    }
+    lastScrollY.current = latest;
+  });
+
   useEffect(() => {
     const onDone = () => setReady(true);
     window.addEventListener("decrypt-finished", onDone, { once: true });
@@ -39,7 +67,12 @@ export default function Navbar() {
   }, []);
 
   return (
-    <header className="sticky z-50 w-full font-michroma">
+    <motion.header
+      className="sticky z-50 w-full font-michroma"
+      initial={{ y: 0 }}
+      animate={{ y: hidden ? -100 : 0 }}
+      transition={{ duration: 0.3, ease: easeOut }}
+    >
       <div className="relative mx-auto w-full max-w-[1400px] px-4 md:px-6">
         <nav className="flex h-16 items-center justify-between text-foreground/90 ">
           {/* Logo (fade up) */}
@@ -60,8 +93,25 @@ export default function Navbar() {
             </Link>
           </motion.div>
 
-          {/* Nav items (drop in) */}
-          <div className="flex items-center gap-2 md:gap-4">
+          {/* Mobile hamburger menu */}
+          <div className="md:hidden">
+            <StaggeredMenu
+              position="right"
+              items={menuItems}
+              socialItems={socialItems}
+              displaySocials={true}
+              displayItemNumbering={true}
+              menuButtonColor="#fff"
+              openMenuButtonColor="#fff"
+              changeMenuColorOnOpen={true}
+              colors={['#000000', '#000000']}
+              logoUrl="/images/H-Logo.png"
+              accentColor="#ff6b6b"
+            />
+          </div>
+
+          {/* Desktop Nav items (drop in) */}
+          <div className="hidden md:flex items-center gap-2 md:gap-4">
             {navItems.map((item, i) => (
               <motion.div
                 key={item.href}
@@ -113,6 +163,6 @@ export default function Navbar() {
           style={{ transformOrigin: "center" }}
         />
       </div>
-    </header>
+    </motion.header>
   );
 }

@@ -107,7 +107,7 @@ export default function HorizontalAbout() {
           >
             {currentIndex === 0 ? (
               // Header Card for Mobile
-              <div className="relative w-full max-w-[320px] flex flex-col justify-center px-4 py-8">
+              <div className="relative h-[450px] w-full max-w-[320px] flex flex-col justify-center px-6 py-8 overflow-hidden rounded-[2rem] bg-neutral-900 border border-white/10">
                 <div className="absolute top-0 left-0 w-16 h-16 border-t-2 border-l-2 border-neutral-800 rounded-tl-2xl opacity-50" />
                 <div className="absolute bottom-0 right-0 w-16 h-16 border-b-2 border-r-2 border-neutral-800 rounded-br-2xl opacity-50" />
                 <h3 className="font-sans text-5xl font-bold text-white tracking-tighter leading-none">
@@ -115,7 +115,7 @@ export default function HorizontalAbout() {
                   <span className="text-neutral-600">Me.</span>
                 </h3>
                 <p className="mt-6 text-neutral-400 text-lg leading-relaxed">
-                  I am <span className="text-white font-semibold">Hashintha Nishsanka</span>. I don&apos;t just write code; I engineer experiences that define brands.
+                  I am <span className="text-white font-semibold">Hashintha</span>. I am {new Date().getFullYear() - 2001} years old, and I turn ideas into interactive experiences.
                 </p>
                 <div className="absolute -right-10 -bottom-10 w-40 h-40 bg-white/5 rounded-full blur-3xl pointer-events-none" />
               </div>

@@ -231,7 +231,7 @@ export default function ContactSection() {
                     items={[
                         { link: "https://github.com/Codehash001", text: "GitHub", icon: <Github /> },
                         { link: "https://linkedin.com/in/hashintha", text: "LinkedIn", icon: <Linkedin /> },
-                        { link: "mailto:hashinthanishsanka@gmail.com", text: "Email", icon: <Mail /> },
+                        { link: "mailto:hashinthaun@gmail.com", text: "Email", icon: <Mail /> },
                         { link: "https://x.com/hashintha", text: "X (Twitter)", icon: <Twitter /> },
                     ]}
                 />
@@ -368,8 +368,8 @@ export default function ContactSection() {
                                 onClick={toggleListening}
                                 disabled={isLoading}
                                 className={`w-10 h-10 rounded-full flex items-center justify-center transition-all mr-1${isListening
-                                        ? "bg-red-500 text-white animate-pulse"
-                                        : "hover:bg-white/10 text-neutral-400"
+                                    ? "bg-red-500 text-white animate-pulse"
+                                    : "hover:bg-white/10 text-neutral-400"
                                     }`}
                                 title={isListening ? "Stop listening" : "Voice input"}
                             >

@@ -1,76 +1,11 @@
 "use client";
 
-import { motion, useScroll, useTransform, useSpring, MotionValue } from "framer-motion";
-import { ExternalLink, ArrowRight } from "lucide-react";
+import { motion, useScroll, useTransform } from "framer-motion";
+import { ArrowRight } from "lucide-react";
 import Image from "next/image";
+import Link from "next/link";
 import { useRef } from "react";
-
-const works = [
-    {
-        id: 1,
-        title: "Nooma",
-        category: "SaaS / Health",
-        description: "Health and longevity tracker designed to optimize personal wellness journeys.",
-        tags: ["SaaS", "Health Tech", "Analytics"],
-        image: "/projects/nooma.png",
-    },
-    {
-        id: 2,
-        title: "DSG AI Agents",
-        category: "AI Solution",
-        description: "Multi-agent AI solution tailored for the Dental School Guide platform.",
-        tags: ["AI Agents", "EduTech", "Automation"],
-        image: "/projects/dsg.png",
-    },
-    {
-        id: 3,
-        title: "Virtu Network",
-        category: "Frontend Development",
-        description: "Responsive front-end interface for the Virtu Network web application.",
-        tags: ["Frontend", "Web App", "UI/UX"],
-        image: "/projects/virtu.png",
-    },
-    {
-        id: 4,
-        title: "Headshot",
-        category: "Full Stack / E-Sports",
-        description: "Comprehensive player registration platform for Headshot E-sports tournaments.",
-        tags: ["Full Stack", "E-Sports", "Registration"],
-        image: "/projects/headshot.png",
-    },
-    {
-        id: 5,
-        title: "Documaty",
-        category: "AI Product",
-        description: "AI agent that transforms complex documentation into clear, step-by-step guidance.",
-        tags: ["AI", "Full Stack", "NLP"],
-        image: "/projects/documaty.png",
-    },
-    {
-        id: 6,
-        title: "Inspira",
-        category: "Web3 / GenAI",
-        description: "Generative AI platform integrating custom Inspi Tokens and USDT for service payments.",
-        tags: ["GenAI", "Web3", "Crypto", "Payment Integration"],
-        image: "/projects/inspira.png",
-    },
-    {
-        id: 7,
-        title: "Beni Minting Dapp",
-        category: "Blockchain",
-        description: "Full-stack decentralized application and minting engine built with Solidity.",
-        tags: ["Solidity", "DApp", "Full Stack", "Smart Contracts"],
-        image: "/projects/beni.png",
-    },
-    {
-        id: 8,
-        title: "Fitness",
-        category: "Frontend",
-        description: "High-performance frontend implementation for a modern fitness lifestyle website.",
-        tags: ["Frontend", "React", "Health"],
-        image: "/projects/fitness.png",
-    },
-];
+import { works } from "@/src/data/works";
 
 function ProjectCard({ work, index }: { work: typeof works[0]; index: number }) {
     const ref = useRef<HTMLDivElement>(null);
@@ -139,10 +74,13 @@ function ProjectCard({ work, index }: { work: typeof works[0]; index: number }) 
                         </span>
                     ))}
                 </div>
-                <button className="flex items-center gap-2 text-white border-b border-white/30 pb-1 hover:border-white transition-colors group/btn text-lg">
+                <Link
+                    href={`/work/${work.slug}`}
+                    className="flex items-center gap-2 text-white border-b border-white/30 pb-1 hover:border-white transition-colors group/btn text-lg"
+                >
                     View Case Study
-                    <ExternalLink className="w-5 h-5 group-hover/btn:translate-x-1 transition-transform" />
-                </button>
+                    <ArrowRight className="w-5 h-5 group-hover/btn:translate-x-1 transition-transform" />
+                </Link>
             </motion.div>
         </motion.div>
     );
@@ -150,7 +88,7 @@ function ProjectCard({ work, index }: { work: typeof works[0]; index: number }) 
 
 export default function WorkSection() {
     return (
-        <section className="relative min-h-screen bg-black py-48 px-4 md:px-8">
+        <section id="work" className="relative min-h-screen bg-black py-48 px-4 md:px-8">
             <div className="max-w-7xl mx-auto">
                 <div className="mb-32 px-4">
                     <motion.h2
@@ -169,7 +107,7 @@ export default function WorkSection() {
                         transition={{ delay: 0.2 }}
                         className="text-neutral-400 text-2xl max-w-2xl"
                     >
-                        A curated selection from over 70+ successful projects delivered to clients worldwide.
+                        A curated selection from over 60+ successful projects delivered to clients worldwide.
                     </motion.p>
                 </div>
 

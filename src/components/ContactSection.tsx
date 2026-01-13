@@ -96,7 +96,7 @@ export default function ContactSection() {
 
     const toggleListening = () => {
         if (!recognitionRef.current) return;
-        
+
         if (isListening) {
             recognitionRef.current.stop();
             setIsListening(false);
@@ -172,12 +172,12 @@ export default function ContactSection() {
                     for (let i = 0; i < pcmData.length; i++) {
                         pcmArray[i] = pcmData.charCodeAt(i);
                     }
-                    
+
                     // Create WAV header for PCM data (24kHz, 16-bit, mono)
                     const wavHeader = createWavHeader(pcmArray.length, 24000, 1, 16);
                     const wavBlob = new Blob([wavHeader, pcmArray], { type: 'audio/wav' });
                     const audioUrl = URL.createObjectURL(wavBlob);
-                    
+
                     const audio = new Audio(audioUrl);
                     audio.onplay = () => setIsSpeaking(true);
                     audio.onended = () => {
@@ -189,7 +189,7 @@ export default function ContactSection() {
                         URL.revokeObjectURL(audioUrl);
                         speak(responseText);
                     };
-                    
+
                     await audio.play();
                 } catch {
                     speak(responseText); // Fallback to browser TTS
@@ -209,10 +209,10 @@ export default function ContactSection() {
     };
 
     return (
-        <section className="relative min-h-screen bg-black text-white flex flex-col items-center justify-center py-20 px-4">
-            
+        <section id="contact" className="relative min-h-screen bg-black text-white flex flex-col items-center justify-center py-20 px-4">
+
             {/* Social Links Section */}
-            <motion.div 
+            <motion.div
                 initial={{ opacity: 0, y: 30 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
@@ -227,7 +227,7 @@ export default function ContactSection() {
                     </h2>
                 </div>
 
-                <FlowingMenu 
+                <FlowingMenu
                     items={[
                         { link: "https://github.com/Codehash001", text: "GitHub", icon: <Github /> },
                         { link: "https://linkedin.com/in/hashintha", text: "LinkedIn", icon: <Linkedin /> },
@@ -338,57 +338,56 @@ export default function ContactSection() {
 
                     {/* Input Bar */}
                     <div className="w-full max-w-2xl relative group">
-                    <div className="absolute -inset-0.5 bg-gradient-to-r from-purple-500 to-blue-500 rounded-full opacity-20 group-focus-within:opacity-100 transition-opacity duration-500 blur" />
-                    <div className="relative flex items-center bg-black rounded-full px-2 py-2 border border-white/10">
+                        <div className="absolute -inset-0.5 bg-gradient-to-r from-purple-500 to-blue-500 rounded-full opacity-20 group-focus-within:opacity-100 transition-opacity duration-500 blur" />
+                        <div className="relative flex items-center bg-black rounded-full px-2 py-2 border border-white/10">
 
-                        {/* Mute Toggle */}
-                        <button
-                            onClick={() => {
-                                setIsMuted(!isMuted);
-                                if (!isMuted && synth) synth.cancel();
-                            }}
-                            className={`w-10 h-10 rounded-full flex items-center justify-center transition-colors ${isMuted ? "bg-red-500/10 text-red-400" : "hover:bg-white/10 text-neutral-400"
-                                }`}
-                            title={isMuted ? "Unmute Voice" : "Mute Voice"}
-                        >
-                            {isMuted ? <VolumeX className="w-4 h-4" /> : <Volume2 className="w-4 h-4" />}
-                        </button>
+                            {/* Mute Toggle */}
+                            <button
+                                onClick={() => {
+                                    setIsMuted(!isMuted);
+                                    if (!isMuted && synth) synth.cancel();
+                                }}
+                                className={`w-10 h-10 rounded-full flex items-center justify-center transition-colors ${isMuted ? "bg-red-500/10 text-red-400" : "hover:bg-white/10 text-neutral-400"
+                                    }`}
+                                title={isMuted ? "Unmute Voice" : "Mute Voice"}
+                            >
+                                {isMuted ? <VolumeX className="w-4 h-4" /> : <Volume2 className="w-4 h-4" />}
+                            </button>
 
-                        <input
-                            type="text"
-                            value={input}
-                            onChange={(e) => setInput(e.target.value)}
-                            onKeyDown={(e) => e.key === "Enter" && handleSendMessage()}
-                            placeholder="Ask Karen..."
-                            className="flex-1 bg-transparent border-none focus:outline-none text-white px-4 placeholder-neutral-600 text-sm md:text-base"
-                        />
+                            <input
+                                type="text"
+                                value={input}
+                                onChange={(e) => setInput(e.target.value)}
+                                onKeyDown={(e) => e.key === "Enter" && handleSendMessage()}
+                                placeholder="Ask Karen..."
+                                className="flex-1 bg-transparent border-none focus:outline-none text-white px-4 placeholder-neutral-600 text-sm md:text-base"
+                            />
 
-                        {/* Mic Button */}
-                        <button
-                            onClick={toggleListening}
-                            disabled={isLoading}
-                            className={`w-10 h-10 rounded-full flex items-center justify-center transition-all mr-1${
-                                isListening 
-                                    ? "bg-red-500 text-white animate-pulse" 
-                                    : "hover:bg-white/10 text-neutral-400"
-                            }`}
-                            title={isListening ? "Stop listening" : "Voice input"}
-                        >
-                            {isListening ? <MicOff className="w-4 h-4" /> : <Mic className="w-4 h-4" />}
-                        </button>
+                            {/* Mic Button */}
+                            <button
+                                onClick={toggleListening}
+                                disabled={isLoading}
+                                className={`w-10 h-10 rounded-full flex items-center justify-center transition-all mr-1${isListening
+                                        ? "bg-red-500 text-white animate-pulse"
+                                        : "hover:bg-white/10 text-neutral-400"
+                                    }`}
+                                title={isListening ? "Stop listening" : "Voice input"}
+                            >
+                                {isListening ? <MicOff className="w-4 h-4" /> : <Mic className="w-4 h-4" />}
+                            </button>
 
-                        <button
-                            onClick={() => handleSendMessage()}
-                            disabled={!input.trim() || isLoading}
-                            className="w-10 h-10 bg-white text-black rounded-full flex items-center justify-center hover:scale-105 transition-transform disabled:opacity-50 disabled:cursor-not-allowed"
-                        >
-                            {isLoading ? (
-                                <Loader2 className="w-4 h-4 animate-spin" />
-                            ) : (
-                                <Send className="w-4 h-4" />
-                            )}
-                        </button>
-                    </div>
+                            <button
+                                onClick={() => handleSendMessage()}
+                                disabled={!input.trim() || isLoading}
+                                className="w-10 h-10 bg-white text-black rounded-full flex items-center justify-center hover:scale-105 transition-transform disabled:opacity-50 disabled:cursor-not-allowed"
+                            >
+                                {isLoading ? (
+                                    <Loader2 className="w-4 h-4 animate-spin" />
+                                ) : (
+                                    <Send className="w-4 h-4" />
+                                )}
+                            </button>
+                        </div>
                     </div>
                 </div>
 

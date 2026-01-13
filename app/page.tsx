@@ -17,7 +17,7 @@ export default function Home() {
 
       {/* Fixed hero layer below scrolling content */}
       <div className="fixed inset-0 z-0">
-        <main id="home" className="w-full h-full p-0 m-0 relative">
+        <main className="w-full h-full p-0 m-0 relative">
           <CodeHoverCards
             className="bg-black text-white"
             cardClassName="w-full h-full"
@@ -50,12 +50,12 @@ export default function Home() {
       </div>
 
       {/* Spacer in normal flow so nothing overlays the hero */}
-      <div className="h-[100vh]" aria-hidden="true" />
+      <div id="home" className="h-[100vh]" aria-hidden="true" />
       {/* Next section follows in normal flow */}
       <div className="relative z-10">
         <NextSection />
       </div>
-      <div className="relative z-10">
+      <div id="about" className="relative z-10">
         <HorizontalAbout />
       </div>
       <WorkSection />

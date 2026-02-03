@@ -86,13 +86,13 @@ export default function EducationExperience() {
                         { name: "Node.js", slug: "nodedotjs", color: "#339933", width: "88%" },
                         { name: "Python", slug: "python", color: "#3776AB", width: "95%" },
                         { name: "FastAPI", slug: "fastapi", color: "#009688", width: "85%" },
-                        { name: "PyTorch", slug: "pytorch", color: "#EE4C2C", width: "80%" },
+                        { name: "PyTorch", slug: "pytorch", color: "#EE4C2C", width: "60%" },
                         { name: "PostgreSQL", slug: "postgresql", color: "#4169E1", width: "85%" },
                         { name: "MongoDB", slug: "mongodb", color: "#47A248", width: "82%" },
-                        { name: "Docker", slug: "docker", color: "#2496ED", width: "85%" },
-                        { name: "AWS", slug: "amazonaws", color: "#FF9900", width: "75%" },
+                        { name: "Docker", slug: "docker", color: "#2496ED", width: "60%" },
+                        { name: "AWS", slug: "amazonaws", color: "#FF9900", width: "50%" },
                         { name: "CI / CD", slug: "githubactions", color: "#2088FF", width: "80%" }, // Using GitHub Actions as generic CI/CD icon
-                        { name: "Linux", slug: "linux", color: "#FCC624", width: "85%" },
+                        { name: "Linux", slug: "linux", color: "#FCC624", width: "60%" },
                     ].map((tech, index) => (
                         <div key={tech.name} className="flex items-center gap-4 group">
                             {/* Y-AXIS: Icon & Name */}

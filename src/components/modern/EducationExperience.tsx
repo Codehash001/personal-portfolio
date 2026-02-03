@@ -5,7 +5,7 @@ import { GraduationCap, Briefcase, Award } from "lucide-react";
 
 export default function EducationExperience() {
     return (
-        <section className="py-20 px-4 md:px-8 max-w-7xl mx-auto">
+        <section id="about" className="py-20 px-4 md:px-8 max-w-7xl mx-auto">
             <div className="grid grid-cols-1 md:grid-cols-2 gap-12">
 
                 {/* Education Column */}

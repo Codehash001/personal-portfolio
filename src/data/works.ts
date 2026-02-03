@@ -14,6 +14,7 @@ export interface Work {
     technologies: string[];
     results?: string;
     liveUrl?: string;
+    sourceUrl?: string; // Link to GitHub/Source code (optional)
     gallery?: string[];
 }
 

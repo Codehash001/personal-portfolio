@@ -1,8 +1,14 @@
 @import "tailwindcss";
 
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
+  --background: #0a0a0a;
+  --foreground: #ededed;
+  /* New Design Theme */
+  --color-accent-orange: #FF5722;
+  --color-accent-green: #CCFF00;
+  --color-card-bg: #171717;
+  --font-display: var(--font-michroma), sans-serif;
+  /* Recycling existing font var or fallback */
 }
 
 @theme inline {
@@ -10,11 +16,19 @@
   --color-foreground: var(--foreground);
   --font-sans: var(--font-michroma);
   --font-mono: var(--font-geist-mono);
+  --color-accent-orange: var(--color-accent-orange);
+  --color-accent-green: var(--color-accent-green);
+  --color-card-bg: var(--color-card-bg);
 }
 
-@media (prefers-color-scheme: dark) {
+@media (prefers-color-scheme: light) {
+
+  /* Enforce dark mode look for this specific design even in light mode if desired, 
+     but keeping light variables just in case, though the design is heavily dark-themed. 
+     For now, mapping light to same dark foundation or slightly lighter darks for consistency with the design image. */
   :root {
     --background: #0a0a0a;
+    /* Force dark background for design consistency */
     --foreground: #ededed;
   }
 }
@@ -23,6 +37,8 @@ body {
   background: var(--background);
   color: var(--foreground);
   font-family: var(--font-sans), sans-serif;
+  overflow-x: hidden;
+  /* Prevent horizontal scroll from animations */
 }
 
 /* Animations: tracking-in-contract (inspired by Animista) */

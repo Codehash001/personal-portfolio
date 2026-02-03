@@ -1,66 +1,106 @@
-import CodeHoverCards from "@/src/components/lightswind/code-hover-cards";
-import Navbar from "@/src/components/Navbar";
-import HeroImage from "@/src/components/HeroImage";
-import HeroTitle from "@/src/components/HeroTitle";
-import NextSection from "@/src/components/NextSection";
-import HorizontalAbout from "@/src/components/HorizontalAbout";
+import ProfileCard from "@/src/components/modern/ProfileCard";
+import StatsCard from "@/src/components/modern/StatsCard";
+import ServiceCard from "@/src/components/modern/ServiceCard";
+import EducationExperience from "@/src/components/modern/EducationExperience";
 import WorkSection from "@/src/components/WorkSection";
 import ContactSection from "@/src/components/ContactSection";
-import Footer from "@/src/components/Footer";
+import { Layers, LayoutTemplate, SquareTerminal, Cloud } from "lucide-react";
 
 export default function Home() {
   return (
-    <div className="w-screen min-h-screen bg-black text-white snap-y snap-proximity scroll-pt-16">
-      <div className="fixed inset-0 z-30 h-16">
-        <Navbar />
-      </div>
+    <div className="min-h-screen bg-black text-white px-4 md:px-8 py-2 font-sans selection:bg-[#CCFF00] selection:text-black">
+      {/* 1. HERO / BENTO GRID SECTION */}
+      <section className="max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-12 gap-6 items-start mb-12 md:mb-20 pt-4 md:pt-6">
 
-      {/* Fixed hero layer below scrolling content */}
-      <div className="fixed inset-0 z-0">
-        <main className="w-full h-full p-0 m-0 relative">
-          <CodeHoverCards
-            className="bg-black text-white"
-            cardClassName="w-full h-full"
-            showBorder={false}
-            columns={1}
-            iconSize={0}
-            fullScreen
-            cardGap="0"
-            // eslint-disable-next-line @typescript-eslint/no-explicit-any
-            aspectRatio={null as any}
-            borderRadius={0}
-            cards={[
-              {
-                id: "hero",
-                content: (
-                  <HeroTitle
-                    line1="BEYOND THE"
-                    line2="BROWSER"
-                    duration={2400}
-                    className="mt-32 md:mt-8 md:-ml-6 px-4 overflow-hidden max-w-[100vw] font-sans text-white"
-                    lineClassName="text-[11vw] md:text-[8vw] xl:text-[10vw] font-bold tracking-tight md:tracking-normal"
-                    gapClass="block mt-1 md:mt-0"
-                  />
-                ),
-              },
-            ]}
-          />
-          <HeroImage />
-        </main>
-      </div>
+        {/* Left Column: Profile Card */}
+        <div className="lg:col-span-4 xl:col-span-3 h-[600px] lg:h-auto lg:sticky lg:top-8 self-start">
+          <ProfileCard />
+        </div>
 
-      {/* Spacer in normal flow so nothing overlays the hero */}
-      <div id="home" className="h-[100vh]" aria-hidden="true" />
-      {/* Next section follows in normal flow */}
-      <div className="relative z-10">
-        <NextSection />
-      </div>
-      <div id="about" className="relative z-10">
-        <HorizontalAbout />
-      </div>
-      <WorkSection />
-      <ContactSection />
-      <Footer />
-    </div>
+
+
+        {/* Right Column: Main Content Area */}
+        <div className="lg:col-span-8 xl:col-span-9 flex flex-col justify-start gap-20 lg:pl-10">
+
+          {/* HERO CONTENT */}
+          <div className="flex flex-col gap-6">
+            {/* HEROTEXT: Student/Freelancer Focus */}
+            <div className="space-y-4">
+              <div className="flex flex-col gap-2">
+                <h1 className="text-5xl md:text-7xl xl:text-8xl font-bold tracking-tighter uppercase leading-[0.9] font-display text-white">
+                  Designing. <br />
+                  <span className="text-neutral-700">Developing.</span> <br />
+                  <span className="text-[#FF5722]">Debugging.</span> <br />
+                  <span className="text-[#CCFF00]">Delivering.</span>
+                </h1>
+              </div>
+
+              <p className="text-gray-400 text-lg md:text-xl max-w-3xl mt-4 leading-relaxed font-light border-l-2 border-[#CCFF00] pl-6">
+                A dedicated university student with a freelance track record. <br className="hidden md:block" />
+                Bridging the gap between academic theory and real-world application. <br />
+                Currently building AI-powered solutions and robust full-stack applications.
+              </p>
+            </div>
+
+            {/* STATS */}
+            <StatsCard />
+
+            {/* TECHNICAL ARSENAL */}
+            <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
+              {/* AI */}
+              <ServiceCard
+                title="AI & Intelligent Agents"
+                subtitle="Python, RAG, LLMs"
+                icon={<Layers className="w-8 h-8" />}
+                theme="green"
+                delay={0.1}
+                className="min-h-[200px]"
+              />
+
+              {/* Full Stack */}
+              <ServiceCard
+                title="Full-Stack Engineering"
+                subtitle="Next.js, Node, React"
+                icon={<LayoutTemplate className="w-8 h-8" />}
+                theme="orange"
+                delay={0.2}
+                className="min-h-[200px]"
+              />
+
+              {/* DevOps / Ops */}
+              <ServiceCard
+                title="DevOps & Cloud"
+                subtitle="Docker, AWS, CI/CD"
+                icon={<Cloud className="w-8 h-8" />}
+                theme="dark"
+                delay={0.3}
+                className="min-h-[200px]"
+              />
+            </div>
+
+            {/* Call to Actions */}
+            <div className="flex flex-wrap gap-4 mt-4">
+              <a href="#work" className="group flex items-center gap-2 bg-white text-black px-8 py-4 rounded-full font-bold hover:bg-[#CCFF00] transition-all">
+                View My Projects
+                <span className="group-hover:translate-x-1 transition-transform">→</span>
+              </a>
+              <a href="#contact" className="px-8 py-4 rounded-full font-bold border border-white/20 hover:border-[#FF5722] hover:text-[#FF5722] transition-colors">
+                Hire Me as Intern
+              </a>
+            </div>
+          </div>
+
+          {/* 3. EDUCATION & EXPERIENCE */}
+          <EducationExperience />
+
+          {/* 4. SELECTED WORK */}
+          <WorkSection />
+
+          {/* 5. CONTACT */}
+          <ContactSection />
+
+        </div>
+      </section >
+    </div >
   );
 }

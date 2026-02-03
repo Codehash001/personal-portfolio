@@ -45,7 +45,7 @@ export default async function CaseStudyPage({ params }: { params: Promise<{ slug
                             href={work.liveUrl}
                             target="_blank"
                             rel="noopener noreferrer"
-                            className="flex items-center gap-2 px-4 py-2 bg-emerald-500 hover:bg-emerald-400 text-black rounded-full font-medium transition-colors"
+                            className="flex items-center gap-2 px-4 py-2 bg-[#CCFF00] hover:bg-[#B2DF00] text-black rounded-full font-medium transition-colors"
                         >
                             <span>View Live</span>
                             <ExternalLink className="w-4 h-4" />
@@ -58,7 +58,7 @@ export default async function CaseStudyPage({ params }: { params: Promise<{ slug
             <section className="pt-32 pb-20 px-4 md:px-8">
                 <div className="max-w-7xl mx-auto">
                     <div className="mb-8">
-                        <span className="text-emerald-400 font-mono text-sm tracking-widest uppercase">
+                        <span className="text-[#CCFF00] font-mono text-sm tracking-widest uppercase">
                             {work.category}
                         </span>
                     </div>
@@ -103,7 +103,7 @@ export default async function CaseStudyPage({ params }: { params: Promise<{ slug
                 <div className="max-w-7xl mx-auto">
                     <div className="grid md:grid-cols-3 gap-12">
                         <div>
-                            <h2 className="text-sm font-mono text-emerald-400 uppercase tracking-widest mb-4">
+                            <h2 className="text-sm font-mono text-[#CCFF00] uppercase tracking-widest mb-4">
                                 Overview
                             </h2>
                         </div>
@@ -120,7 +120,7 @@ export default async function CaseStudyPage({ params }: { params: Promise<{ slug
             <section className="px-4 md:px-8 py-20 bg-neutral-950">
                 <div className="max-w-7xl mx-auto grid md:grid-cols-2 gap-16">
                     <div>
-                        <h2 className="text-sm font-mono text-emerald-400 uppercase tracking-widest mb-6">
+                        <h2 className="text-sm font-mono text-[#CCFF00] uppercase tracking-widest mb-6">
                             The Challenge
                         </h2>
                         <p className="text-lg text-neutral-300 leading-relaxed">
@@ -128,7 +128,7 @@ export default async function CaseStudyPage({ params }: { params: Promise<{ slug
                         </p>
                     </div>
                     <div>
-                        <h2 className="text-sm font-mono text-emerald-400 uppercase tracking-widest mb-6">
+                        <h2 className="text-sm font-mono text-[#CCFF00] uppercase tracking-widest mb-6">
                             The Solution
                         </h2>
                         <p className="text-lg text-neutral-300 leading-relaxed">
@@ -143,7 +143,7 @@ export default async function CaseStudyPage({ params }: { params: Promise<{ slug
                 <div className="max-w-7xl mx-auto">
                     <div className="grid md:grid-cols-3 gap-12">
                         <div>
-                            <h2 className="text-sm font-mono text-emerald-400 uppercase tracking-widest mb-4">
+                            <h2 className="text-sm font-mono text-[#CCFF00] uppercase tracking-widest mb-4">
                                 Key Features
                             </h2>
                         </div>
@@ -154,7 +154,7 @@ export default async function CaseStudyPage({ params }: { params: Promise<{ slug
                                         key={index}
                                         className="flex items-start gap-4 text-lg text-neutral-300"
                                     >
-                                        <span className="text-emerald-400 font-mono text-sm mt-1">
+                                        <span className="text-[#CCFF00] font-mono text-sm mt-1">
                                             0{index + 1}
                                         </span>
                                         <span>{feature}</span>
@@ -169,7 +169,7 @@ export default async function CaseStudyPage({ params }: { params: Promise<{ slug
             {/* Tech Stack */}
             <section className="px-4 md:px-8 py-20 bg-neutral-950">
                 <div className="max-w-7xl mx-auto">
-                    <h2 className="text-sm font-mono text-emerald-400 uppercase tracking-widest mb-12 text-center">
+                    <h2 className="text-sm font-mono text-[#CCFF00] uppercase tracking-widest mb-12 text-center">
                         Technologies Used
                     </h2>
                     <div className="flex flex-wrap justify-center gap-4">
@@ -191,7 +191,7 @@ export default async function CaseStudyPage({ params }: { params: Promise<{ slug
                     <div className="max-w-7xl mx-auto">
                         <div className="grid md:grid-cols-3 gap-12">
                             <div>
-                                <h2 className="text-sm font-mono text-emerald-400 uppercase tracking-widest mb-4">
+                                <h2 className="text-sm font-mono text-[#CCFF00] uppercase tracking-widest mb-4">
                                     Results
                                 </h2>
                             </div>

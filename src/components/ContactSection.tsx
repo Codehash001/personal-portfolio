@@ -118,12 +118,7 @@ export default function ContactSection() {
         synth.speak(utterance);
     };
 
-    const quickQuestions = [
-        "What are your rates?",
-        "Do you build AI agents?",
-        "Can you do blockchain?",
-        "How do I contact you?"
-    ];
+
 
     useEffect(() => {
         if (scrollRef.current) {
@@ -218,27 +213,28 @@ export default function ContactSection() {
                 viewport={{ once: true }}
                 className="relative z-10 w-full max-w-4xl mb-32 px-4"
             >
-                <div className="mb-16">
-                    <h2 className="text-5xl md:text-8xl font-bold text-white leading-tight">
-                        Let&apos;s
-                    </h2>
-                    <h2 className="text-5xl md:text-8xl font-bold text-neutral-600 italic leading-tight">
-                        Connect.
+                <div className="mb-20 text-center">
+                    <h2 className="text-5xl md:text-8xl font-bold tracking-tighter">
+                        <span className="text-white mr-3">Let&apos;s</span>
+                        <span className="bg-[#CCFF00] text-black px-2 md:px-4 inline-block">Connect</span>
                     </h2>
                 </div>
 
                 <FlowingMenu
                     items={[
                         { link: "https://github.com/Codehash001", text: "GitHub", icon: <Github /> },
-                        { link: "https://linkedin.com/in/hashintha", text: "LinkedIn", icon: <Linkedin /> },
+                        { link: "https://www.linkedin.com/in/hashintha-nishsanka-81a19a348", text: "LinkedIn", icon: <Linkedin /> },
                         { link: "mailto:hashinthaun@gmail.com", text: "Email", icon: <Mail /> },
-                        { link: "https://x.com/hashintha", text: "X (Twitter)", icon: <Twitter /> },
+                        {
+                            link: "https://x.com/hashintha_?s=21", text: "X (Twitter)", icon: (
+                                <svg viewBox="0 0 24 24" fill="currentColor" className="w-6 h-6">
+                                    <path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z" />
+                                </svg>
+                            )
+                        },
                     ]}
                 />
             </motion.div>
-
-            {/* Background Ambience */}
-            <div className="absolute inset-0 bg-gradient-to-tr from-purple-900/10 via-black to-blue-900/10" />
 
             {/* Main Container - Fixed height layout */}
             <div className="relative z-10 w-full max-w-4xl flex flex-col items-center h-[90vh]">
@@ -247,10 +243,10 @@ export default function ContactSection() {
                 <div className="flex-1 flex flex-col items-center justify-center gap-6 w-full">
                     {/* Karen Orb (Custom CSS) - Reduced Scale */}
                     <div className="relative group scale-100 transition-transform duration-500">
-                        <div className={`orb-container ${isSpeaking ? "animate-pulse" : ""}`}>
-                            <div className="orb">
-                                <div className="orb-inner"></div>
-                                <div className="orb-inner"></div>
+                        <div className={`orb-container ${isSpeaking ? "animate-pulse" : ""}`} style={{ filter: "drop-shadow(0 0 10px #FF5722)" }}>
+                            <div className="orb" style={{ background: "#FF5722" }}>
+                                <div className="orb-inner" style={{ background: "#CCFF00" }}></div>
+                                <div className="orb-inner" style={{ background: "#FF5722" }}></div>
                             </div>
                         </div>
 
@@ -261,7 +257,7 @@ export default function ContactSection() {
                                         key={i}
                                         animate={{
                                             height: [4, 16, 4],
-                                            backgroundColor: "#a855f7"
+                                            backgroundColor: "#CCFF00"
                                         }}
                                         transition={{
                                             duration: 0.5,
@@ -269,7 +265,7 @@ export default function ContactSection() {
                                             ease: "easeInOut",
                                             delay: i * 0.1
                                         }}
-                                        className="w-1 rounded-full bg-purple-500"
+                                        className="w-1 rounded-full bg-[#CCFF00]"
                                     />
                                 ))}
                             </div>
@@ -306,7 +302,7 @@ export default function ContactSection() {
                                     </p>
 
                                     {/* AI Answer - find last model message (excluding initial) */}
-                                    <p className="text-lg md:text-xl font-medium bg-clip-text text-transparent bg-gradient-to-r from-purple-300 to-blue-300 leading-relaxed">
+                                    <p className="text-lg md:text-xl font-medium bg-clip-text text-transparent bg-gradient-to-r from-[#FF5722] to-[#CCFF00] leading-relaxed">
                                         {isLoading ? (
                                             <span className="animate-pulse">Thinking...</span>
                                         ) : (
@@ -321,25 +317,11 @@ export default function ContactSection() {
 
                 {/* Bottom section: Quick questions + Input (fixed position) */}
                 <div className="w-full flex flex-col items-center gap-4 pb-4">
-                    {/* Quick Questions */}
-                    <div className="w-full">
-                        <div className="flex items-center justify-center gap-3 overflow-x-auto pb-2 pt-2 px-4 scrollbar-hide flex-wrap md:flex-nowrap">
-                            {quickQuestions.map((q) => (
-                                <button
-                                    key={q}
-                                    onClick={() => handleSendMessage(q)}
-                                    className="flex-shrink-0 px-5 py-2 rounded-full bg-white/5 border border-white/10 text-xs md:text-sm whitespace-nowrap hover:bg-white/10 hover:border-purple-500/30 transition-all text-neutral-300 active:scale-95"
-                                >
-                                    {q}
-                                </button>
-                            ))}
-                        </div>
-                    </div>
+
 
                     {/* Input Bar */}
-                    <div className="w-full max-w-2xl relative group">
-                        <div className="absolute -inset-0.5 bg-gradient-to-r from-purple-500 to-blue-500 rounded-full opacity-20 group-focus-within:opacity-100 transition-opacity duration-500 blur" />
-                        <div className="relative flex items-center bg-black rounded-full px-2 py-2 border border-white/10">
+                    <div className="w-full max-w-2xl relative">
+                        <div className="relative flex items-center bg-neutral-900 rounded-full px-2 py-2 border border-white/10 hover:border-white/20 transition-colors">
 
                             {/* Mute Toggle */}
                             <button

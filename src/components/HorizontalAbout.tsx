@@ -11,49 +11,50 @@ const XIcon = ({ className }: { className?: string }) => (
   </svg>
 );
 
-{
-  id: 1,
+const cards = [
+  {
+    id: 1,
     title: "Education",
-      subtitle: "Bachelor of IT (BICT)",
-        description: "Faculty of Technology, University of Sri Jayawardenepura.",
-          date: "Undergraduate",
-            icon: <GraduationCap className="w-8 h-8 text-blue-400" />,
-              gradient: "from-blue-900/40 to-black",
-                pattern: "bg-[radial-gradient(circle_at_center,rgba(59,130,246,0.1)_0,transparent_70%)]",
+    subtitle: "Bachelor of IT (BICT)",
+    description: "Faculty of Technology, University of Sri Jayawardenepura.",
+    date: "Undergraduate",
+    icon: <GraduationCap className="w-8 h-8 text-blue-400" />,
+    gradient: "from-blue-900/40 to-black",
+    pattern: "bg-[radial-gradient(circle_at_center,rgba(59,130,246,0.1)_0,transparent_70%)]",
   },
-{
-  id: 2,
+  {
+    id: 2,
     title: "Experience",
-      subtitle: "Freelance Developer",
-        stats: "50+",
-          statsLabel: "Projects Completed",
-            description: "Specialized in web applications since 2021. Delivering quality for 15+ clients.",
-              icon: <Briefcase className="w-8 h-8 text-emerald-400" />,
-                gradient: "from-emerald-900/40 to-black",
-                  pattern: "bg-[linear-gradient(45deg,rgba(16,185,129,0.05)_1px,transparent_1px)] bg-[length:20px_20px]",
+    subtitle: "Freelance Developer",
+    stats: "50+",
+    statsLabel: "Projects Completed",
+    description: "Specialized in web applications since 2021. Delivering quality for 15+ clients.",
+    icon: <Briefcase className="w-8 h-8 text-emerald-400" />,
+    gradient: "from-emerald-900/40 to-black",
+    pattern: "bg-[linear-gradient(45deg,rgba(16,185,129,0.05)_1px,transparent_1px)] bg-[length:20px_20px]",
   },
-{
-  id: 3,
+  {
+    id: 3,
     title: "Tech Stack",
-      description: "My arsenal for building digital masterpieces.",
-        tags: ["Next.js", "React", "Node.js", "TypeScript", "Tailwind CSS", "Framer Motion", "Supabase", "PostgreSQL", "LangChain"],
-          icon: <Code className="w-8 h-8 text-orange-400" />,
-            gradient: "from-orange-900/40 to-black",
-              pattern: "bg-[radial-gradient(ellipse_at_top,rgba(249,115,22,0.15),transparent_50%)]",
+    description: "My arsenal for building digital masterpieces.",
+    tags: ["Next.js", "React", "Node.js", "TypeScript", "Tailwind CSS", "Framer Motion", "Supabase", "PostgreSQL", "LangChain"],
+    icon: <Code className="w-8 h-8 text-orange-400" />,
+    gradient: "from-orange-900/40 to-black",
+    pattern: "bg-[radial-gradient(ellipse_at_top,rgba(249,115,22,0.15),transparent_50%)]",
   },
-{
-  id: 4,
+  {
+    id: 4,
     title: "Connect",
-      description: "Let's build something amazing together.",
-        links: [
-          { icon: <Github className="w-6 h-6" />, label: "GitHub", href: "https://github.com/Codehash001" },
-          { icon: <Linkedin className="w-6 h-6" />, label: "LinkedIn", href: "https://www.linkedin.com/in/hashintha-nishsanka-81a19a348" },
-          { icon: <Mail className="w-6 h-6" />, label: "Email", href: "mailto:hashinthaun@gmail.com" },
-          { icon: <XIcon className="w-6 h-6" />, label: "X", href: "https://x.com/hashintha_?s=21" }
-        ],
-          icon: <Share2 className="w-8 h-8 text-purple-400" />,
-            gradient: "from-purple-900/40 to-black",
-              pattern: "bg-[conic-gradient(at_top_right,rgba(168,85,247,0.15),transparent)]",
+    description: "Let's build something amazing together.",
+    links: [
+      { icon: <Github className="w-6 h-6" />, label: "GitHub", href: "https://github.com/Codehash001" },
+      { icon: <Linkedin className="w-6 h-6" />, label: "LinkedIn", href: "https://www.linkedin.com/in/hashintha-nishsanka-81a19a348" },
+      { icon: <Mail className="w-6 h-6" />, label: "Email", href: "mailto:hashinthaun@gmail.com" },
+      { icon: <XIcon className="w-6 h-6" />, label: "X", href: "https://x.com/hashintha_?s=21" }
+    ],
+    icon: <Share2 className="w-8 h-8 text-purple-400" />,
+    gradient: "from-purple-900/40 to-black",
+    pattern: "bg-[conic-gradient(at_top_right,rgba(168,85,247,0.15),transparent)]",
   },
 ];
 

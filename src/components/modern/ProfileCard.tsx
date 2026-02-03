@@ -88,14 +88,13 @@ export default function ProfileCard() {
             </AnimatePresence>
 
             {/* Image Container */}
-            <div className="relative z-10 w-full aspect-square rounded-[24px] overflow-hidden bg-[#FF5722] mb-4 mt-8">
+            <div className="relative z-10 w-full aspect-square rounded-[24px] overflow-hidden mb-4 mt-8">
                 <Image
                     src="/images/hero-image.png"
                     alt="Hashintha Nishsanka"
                     fill
-                    className="object-cover object-top mix-blend-multiply opacity-90 grayscale-[20%]"
+                    className="object-cover object-top"
                 />
-                <div className="absolute inset-0 bg-[#FF5722]/20 mix-blend-overlay"></div>
             </div>
 
             {/* Text Content */}

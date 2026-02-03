@@ -8,12 +8,12 @@ import { Layers, LayoutTemplate, SquareTerminal, Cloud } from "lucide-react";
 
 export default function Home() {
   return (
-    <div className="min-h-screen bg-black text-white px-4 md:px-8 py-2 font-sans selection:bg-[#CCFF00] selection:text-black">
+    <div className="min-h-screen bg-black text-white px-4 md:px-8 py-2 font-sans selection:bg-[#CCFF00] selection:text-black overflow-x-hidden">
       {/* 1. HERO / BENTO GRID SECTION */}
       <section className="max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-12 gap-6 items-start mb-12 md:mb-20 pt-4 md:pt-6">
 
         {/* Left Column: Profile Card */}
-        <div className="lg:col-span-4 xl:col-span-3 h-[600px] lg:h-auto lg:sticky lg:top-8 self-start">
+        <div className="lg:col-span-4 xl:col-span-3 h-auto lg:sticky lg:top-8 self-start">
           <ProfileCard />
         </div>
 

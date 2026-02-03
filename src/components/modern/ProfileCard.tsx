@@ -88,7 +88,7 @@ export default function ProfileCard() {
             </AnimatePresence>
 
             {/* Image Container */}
-            <div className="relative z-10 w-full aspect-square rounded-[24px] overflow-hidden mb-4 mt-8">
+            <div className="relative z-10 w-full max-w-[280px] md:max-w-full aspect-square rounded-[24px] overflow-hidden mb-4 mt-8 mx-auto">
                 <Image
                     src="/images/hero-image.png"
                     alt="Hashintha Nishsanka"

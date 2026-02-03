@@ -28,7 +28,7 @@ const cards = [
     subtitle: "Freelance Developer",
     stats: "50+",
     statsLabel: "Projects Completed",
-    description: "Specialized in web applications since 2021. Delivering quality for 15+ clients.",
+    description: "Specialized in web applications since 2022. Delivering quality for 15+ clients.",
     icon: <Briefcase className="w-8 h-8 text-emerald-400" />,
     gradient: "from-emerald-900/40 to-black",
     pattern: "bg-[linear-gradient(45deg,rgba(16,185,129,0.05)_1px,transparent_1px)] bg-[length:20px_20px]",

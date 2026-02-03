@@ -90,9 +90,11 @@ export default function EducationExperience() {
                         { name: "PostgreSQL", slug: "postgresql", color: "#4169E1", width: "85%" },
                         { name: "MongoDB", slug: "mongodb", color: "#47A248", width: "82%" },
                         { name: "Docker", slug: "docker", color: "#2496ED", width: "60%" },
-                        { name: "AWS", slug: "amazonaws", color: "#FF9900", width: "50%" },
+                        { name: "AWS", slug: "amazonaws", color: "#FF9900", width: "50%", icon: "https://icon.icepanel.io/Technology/png-shadow-512/AWS.png" },
                         { name: "CI / CD", slug: "githubactions", color: "#2088FF", width: "80%" }, // Using GitHub Actions as generic CI/CD icon
                         { name: "Linux", slug: "linux", color: "#FCC624", width: "60%" },
+                        { name: "Solidity", slug: "solidity", color: "#AA6746", width: "80%" },
+                        { name: "Hardhat", slug: "hardhat", color: "#FFF100", width: "75%", icon: "https://icon.icepanel.io/Technology/svg/Hardhat.svg" },
                     ].map((tech, index) => (
                         <div key={tech.name} className="flex items-center gap-4 group">
                             {/* Y-AXIS: Icon & Name */}
@@ -101,12 +103,10 @@ export default function EducationExperience() {
                                     {/* Using Simple Icons CDN with fallback for AWS */}
                                     {/* eslint-disable-next-line @next/next/no-img-element */}
                                     <img
-                                        src={tech.slug === "amazonaws"
-                                            ? "https://cdn.jsdelivr.net/npm/simple-icons@v14/icons/amazonaws.svg"
-                                            : `https://cdn.simpleicons.org/${tech.slug}/${tech.color.replace('#', '')}`}
+                                        src={(tech as any).icon || `https://cdn.simpleicons.org/${tech.slug}/${tech.color.replace('#', '')}`}
                                         alt={tech.name}
                                         className="w-full h-full object-contain"
-                                        style={tech.slug === "amazonaws" ? { filter: "invert(1)" } : {}}
+                                        style={tech.slug === "amazonaws" ? {} : {}}
                                     />
                                 </div>
                                 <span className="text-sm font-medium text-neutral-300 group-hover:text-white transition-colors uppercase tracking-tight truncate">

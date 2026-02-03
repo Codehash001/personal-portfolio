@@ -35,11 +35,7 @@ export default function ProfileCard() {
             transition={{ duration: 0.5 }}
             className="h-full w-full bg-white rounded-[24px] p-5 flex flex-col items-center justify-between text-black relative overflow-hidden"
         >
-            {/* Decorative Orange Dash Line */}
-            <svg className="absolute top-10 left-0 w-full h-full pointer-events-none opacity-50 z-0">
-                <path d="M -10 50 Q 30 10 80 50 T 200 50" stroke="#FF5722" strokeWidth="2" fill="none" strokeDasharray="5,5" />
-                <circle cx="80" cy="50" r="4" fill="#FF5722" />
-            </svg>
+
 
             {/* Hamburger Menu Button */}
             <button

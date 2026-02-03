@@ -8,7 +8,7 @@ import { Layers, LayoutTemplate, SquareTerminal, Cloud } from "lucide-react";
 
 export default function Home() {
   return (
-    <div className="min-h-screen bg-black text-white px-4 md:px-8 py-2 font-sans selection:bg-[#CCFF00] selection:text-black overflow-x-hidden">
+    <div className="min-h-screen bg-black text-white px-4 md:px-8 py-2 font-sans selection:bg-[#CCFF00] selection:text-black">
       {/* 1. HERO / BENTO GRID SECTION */}
       <section className="max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-12 gap-6 items-start mb-12 md:mb-20 pt-4 md:pt-6">
 
@@ -25,7 +25,7 @@ export default function Home() {
           {/* HERO CONTENT */}
           <div className="flex flex-col gap-6">
             {/* HEROTEXT: Student/Freelancer Focus */}
-            <div className="space-y-4">
+            <div className="space-y-4 mb-5">
               <div className="flex flex-col gap-2">
                 <h1 className="text-5xl md:text-7xl xl:text-8xl font-bold tracking-tighter uppercase leading-[0.9] font-display text-white">
                   Designing. <br />
@@ -38,7 +38,6 @@ export default function Home() {
               <p className="text-gray-400 text-lg md:text-xl max-w-3xl mt-4 leading-relaxed font-light border-l-2 border-[#CCFF00] pl-6">
                 A dedicated university student with a freelance track record. <br className="hidden md:block" />
                 Bridging the gap between academic theory and real-world application. <br />
-                Currently building AI-powered solutions and robust full-stack applications.
               </p>
             </div>
 

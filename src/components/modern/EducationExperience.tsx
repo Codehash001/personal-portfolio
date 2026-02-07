@@ -100,7 +100,7 @@ export default function EducationExperience() {
                     ).map((tech, index) => (
                         <div key={tech.name} className="flex items-center gap-4 group">
                             {/* Y-AXIS: Icon & Name */}
-                            <div className="w-32 md:w-40 flex items-center gap-3 shrink-0">
+                            <div className="w-44 md:w-56 flex items-center gap-3 shrink-0">
                                 <div className="w-8 h-8 rounded-lg bg-white/5 p-1.5 flex items-center justify-center border border-white/10 group-hover:border-[#CCFF00]/50 transition-colors">
                                     {/* Using Simple Icons CDN with fallback for AWS */}
                                     {/* eslint-disable-next-line @next/next/no-img-element */}

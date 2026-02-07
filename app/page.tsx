@@ -27,7 +27,7 @@ export default function Home() {
             {/* HEROTEXT: Student/Freelancer Focus */}
             <div className="space-y-4 mb-5">
               <div className="flex flex-col gap-2">
-                <h1 className="text-5xl md:text-7xl xl:text-8xl font-bold tracking-tighter uppercase leading-[0.9] font-display text-white">
+                <h1 className="text-4xl sm:text-5xl md:text-7xl xl:text-8xl font-bold tracking-tighter uppercase leading-[0.9] font-display text-white">
                   Designing. <br />
                   <span className="text-neutral-700">Developing.</span> <br />
                   <span className="text-[#FF5722]">Debugging.</span> <br />

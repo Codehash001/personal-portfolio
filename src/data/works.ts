@@ -113,7 +113,7 @@ export const works: Work[] = [
         title: "Documaty",
         category: "AI Product",
         description: "AI agent that transforms complex documentation into clear, step-by-step guidance.",
-        tags: ["AI", "Full Stack", "NLP"],
+        tags: ["AI", "Full Stack", "RAG", "Vector DB"],
         image: "/projects/documaty.png",
         overview: "Documaty is an AI-powered documentation assistant that makes technical documentation accessible to everyone. It converts complex manuals, API docs, and guides into conversational, step-by-step instructions tailored to the user's needs.",
         challenge: "Technical documentation is often overwhelming, poorly structured, and assumes prior knowledge. Users spend excessive time searching through docs for simple answers.",

@@ -40,7 +40,7 @@ export default function ProfileCard() {
             {/* Hamburger Menu Button */}
             <button
                 onClick={() => setIsMenuOpen(true)}
-                className="absolute top-3 left-3 z-20 p-2 rounded-full bg-black/5 hover:bg-black/10 transition-colors"
+                className="absolute top-3 left-3 z-20 p-2 rounded-full bg-black/5 hover:bg-black/10 transition-colors hidden md:block"
                 aria-label="Open Menu"
             >
                 <Menu size={20} className="text-black" />

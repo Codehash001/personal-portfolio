@@ -5,10 +5,12 @@ import EducationExperience from "@/src/components/modern/EducationExperience";
 import WorkSection from "@/src/components/WorkSection";
 import ContactSection from "@/src/components/ContactSection";
 import { Layers, LayoutTemplate, SquareTerminal, Cloud } from "lucide-react";
+import MobileNav from "@/src/components/MobileNav";
 
 export default function Home() {
   return (
     <div className="min-h-screen bg-black text-white px-4 md:px-8 py-2 font-sans selection:bg-[#CCFF00] selection:text-black">
+      <MobileNav />
       {/* 1. HERO / BENTO GRID SECTION */}
       <section className="max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-12 gap-6 items-start mb-12 md:mb-20 pt-4 md:pt-6">
 

@@ -126,6 +126,17 @@ export default function ContactSection() {
         }
     }, [messages, isLoading]);
 
+    // Warm-up the API on mount to reduce cold-start latency
+    useEffect(() => {
+        fetch("/api/chat", {
+            method: "POST",
+            headers: { "Content-Type": "application/json" },
+            body: JSON.stringify({ warmup: true }),
+        }).catch(() => {
+            // Ignore warm-up errors
+        });
+    }, []);
+
     const handleSendMessage = async (textOverride?: string) => {
         const textToSend = textOverride || input.trim();
         if (!textToSend || isLoading) return;
@@ -321,7 +332,7 @@ export default function ContactSection() {
 
                     {/* Input Bar */}
                     <div className="w-full max-w-2xl relative">
-                        <div className="relative flex items-center bg-neutral-900 rounded-full px-2 py-2 border border-white/10 hover:border-white/20 transition-colors">
+                        <div className="relative flex items-center bg-neutral-900 rounded-full pl-2 pr-4 py-2 border border-white/10 hover:border-white/20 transition-colors">
 
                             {/* Mute Toggle */}
                             <button
@@ -342,14 +353,14 @@ export default function ContactSection() {
                                 onChange={(e) => setInput(e.target.value)}
                                 onKeyDown={(e) => e.key === "Enter" && handleSendMessage()}
                                 placeholder="Ask Karen..."
-                                className="flex-1 bg-transparent border-none focus:outline-none text-white px-4 placeholder-neutral-600 text-sm md:text-base"
+                                className="flex-1 min-w-0 bg-transparent border-none focus:outline-none text-white px-4 placeholder-neutral-600 text-sm md:text-base"
                             />
 
                             {/* Mic Button */}
                             <button
                                 onClick={toggleListening}
                                 disabled={isLoading}
-                                className={`w-10 h-10 rounded-full flex items-center justify-center transition-all mr-1${isListening
+                                className={`w-10 h-10 rounded-full flex items-center justify-center transition-all mr-1 ${isListening
                                     ? "bg-red-500 text-white animate-pulse"
                                     : "hover:bg-white/10 text-neutral-400"
                                     }`}
@@ -361,7 +372,7 @@ export default function ContactSection() {
                             <button
                                 onClick={() => handleSendMessage()}
                                 disabled={!input.trim() || isLoading}
-                                className="w-10 h-10 bg-white text-black rounded-full flex items-center justify-center hover:scale-105 transition-transform disabled:opacity-50 disabled:cursor-not-allowed"
+                                className="w-10 h-10 bg-white text-black rounded-full flex items-center justify-center hover:scale-105 transition-transform disabled:opacity-50 disabled:cursor-not-allowed shrink-0"
                             >
                                 {isLoading ? (
                                     <Loader2 className="w-4 h-4 animate-spin" />

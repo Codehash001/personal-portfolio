@@ -3,7 +3,12 @@ import { NextResponse } from "next/server";
 
 export async function POST(req: Request) {
     try {
-        const { message, history } = await req.json();
+        const { message, history, warmup } = await req.json();
+
+        if (warmup) {
+            return NextResponse.json({ status: "ok" });
+        }
+
         const apiKey = process.env.GOOGLE_API_KEY;
 
         if (!apiKey) {

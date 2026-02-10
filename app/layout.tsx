@@ -1,4 +1,4 @@
-import type { Metadata } from "next";
+import type { Metadata, Viewport } from "next";
 import { Geist, Geist_Mono } from "next/font/google";
 import { Michroma } from "next/font/google";
 import "./globals.css";
@@ -23,6 +23,13 @@ const michroma = Michroma({
 export const metadata: Metadata = {
   title: "Hashintha",
   description: "Web application developer",
+};
+
+export const viewport: Viewport = {
+  width: "device-width",
+  initialScale: 1,
+  maximumScale: 1,
+  userScalable: false,
 };
 
 export default function RootLayout({

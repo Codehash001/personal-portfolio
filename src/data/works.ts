@@ -45,6 +45,30 @@ export const works: Work[] = [
     },
     {
         id: 2,
+        slug: "gpt-pdf-translator",
+        title: "GPT PDF Translator",
+        category: "AI Tool",
+        description: "A powerful application that translates PDF documents to various languages while preserving the original layout, formatting, and background colors using OpenAI API.",
+        tags: ["AI", "OpenAI", "Python", "FastAPI", "Open Source"],
+        image: "/projects/pdf.png",
+        sourceUrl: "https://github.com/Codehash001/gpt-pdf-translator",
+        overview: "GPT PDF Translator is a web application that translates PDF documents into any language while preserving the original layout, formatting, and background colors. It extracts text blocks with their positions, font styles, and sizes, detects background colors, translates using OpenAI's API, and recreates the PDF with translated text in matching styles — all with real-time WebSocket progress tracking.",
+        challenge: "Translating PDF documents typically destroys the original layout, formatting, and design elements. Existing tools produce messy outputs that lose the structure, background colors, and font styles of the source document, making translated PDFs look unprofessional and hard to read.",
+        solution: "Built a FastAPI application that intelligently extracts text blocks while preserving their positions, detects background colors by rendering and analyzing text block areas, translates via OpenAI's API, and recreates the PDF by overlaying translated text with matching font styles and intelligent text wrapping — all with real-time WebSocket progress updates.",
+        features: [
+            "Exact layout preservation — maintains original PDF text positioning, images, and graphics",
+            "Background color detection — preserves the background color of each text block",
+            "Font style retention — maintains bold, italic, and other text formatting",
+            "Real-time WebSocket progress tracking during translation",
+            "Multiple language support via OpenAI models",
+            "Intelligent text wrapping for longer translated text",
+            "User-friendly web interface for uploading and translating PDFs"
+        ],
+        technologies: ["Python", "FastAPI", "OpenAI API", "WebSocket", "PyMuPDF"],
+        results: "Open-source tool that enables seamless PDF translation while maintaining professional document quality."
+    },
+    {
+        id: 3,
         slug: "dsg-ai-agents",
         title: "DSG AI Agents",
         category: "AI Solution",
@@ -66,7 +90,7 @@ export const works: Work[] = [
         results: "Enhancing the learning experience for dental school applicants with instant AI-powered assistance across their application journey."
     },
     {
-        id: 3,
+        id: 4,
         slug: "virtu-network",
         title: "Virtu Network",
         category: "Frontend Development",
@@ -87,7 +111,7 @@ export const works: Work[] = [
         results: "Delivered a pixel-perfect implementation that transformed the platform's appearance from dull to cutting-edge, with significantly improved performance."
     },
     {
-        id: 4,
+        id: 5,
         slug: "headshot",
         title: "Headshot",
         category: "Full Stack / E-Sports",
@@ -108,7 +132,7 @@ export const works: Work[] = [
         results: "Successfully powered the inter-university Headshot 2025 E-sports competition with seamless player registration across multiple universities."
     },
     {
-        id: 5,
+        id: 6,
         slug: "documaty",
         title: "Documaty",
         category: "AI Product",
@@ -129,7 +153,7 @@ export const works: Work[] = [
         results: "Reduced documentation lookup time by 75% and improved developer onboarding speed."
     },
     {
-        id: 6,
+        id: 7,
         slug: "beni-minting-dapp",
         title: "Beni Minting Dapp",
         category: "Blockchain",
@@ -150,7 +174,7 @@ export const works: Work[] = [
         results: "Successfully launched the Beni NFT collection with a smooth minting experience for collectors."
     },
     {
-        id: 7,
+        id: 8,
         slug: "fitness",
         title: "Fitness",
         category: "Frontend / E-Commerce",

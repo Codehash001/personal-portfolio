@@ -27,7 +27,7 @@ export default function EducationExperience() {
                         >
                             {/* Sleek Glowing Dot */}
                             <div className="absolute -left-[21.5px] top-1.5 w-3 h-3 rounded-full bg-[#CCFF00] shadow-[0_0_12px_#CCFF00]" />
-                            <span className="text-sm text-neutral-500 font-mono mb-2 block">2022 - Present</span>
+                            <span className="text-sm text-neutral-500 font-mono mb-2 block">2023 - Present</span>
                             <h3 className="text-xl font-bold text-white mb-1">Bachelor of Information and Communication Technology (BICT)</h3>
                             <p className="text-neutral-400 mb-4">Faculty of Technology, University of Sri Jayawardenepura</p>
                             <p className="text-neutral-500 leading-relaxed text-sm">

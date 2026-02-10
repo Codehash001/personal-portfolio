@@ -54,7 +54,7 @@ export const works: Work[] = [
         liveUrl: "https://www.dentalschoolguide.com/",
         overview: "DSG AI Agents is a suite of specialized AI agents built for the Dental School Guide platform, integrated directly into the student dashboard for enrolled course members. The system provides intelligent assistance across multiple aspects of the dental school application journey.",
         challenge: "Students enrolled in the Dental School Guide course needed quick, intelligent access to course content, personalized essay feedback, volunteer opportunity suggestions, real-time school information, and interview preparation - all in one place without overwhelming them.",
-        solution: "Built a multi-agent architecture using Voltage AI framework where each agent specializes in a specific task: RAG-based course content retrieval, AI essay feedback system, volunteer idea matching based on user interests, real-time school info from spreadsheets, and an AI-powered interview practice guide.",
+        solution: "Built a multi-agent architecture using Voltagent AI framework where each agent specializes in a specific task: RAG-based course content retrieval, AI essay feedback system, volunteer idea matching based on user interests, real-time school info from spreadsheets, and an AI-powered interview practice guide.",
         features: [
             "RAG system for course content retrieval",
             "AI feedback system for essay review and improvement",
@@ -62,7 +62,7 @@ export const works: Work[] = [
             "School info retrieval agent from real-time spreadsheets",
             "AI interview practice guide with realistic scenarios"
         ],
-        technologies: ["Next.js", "Voltage AI Framework", "Supabase Auth", "Supabase Database", "Gemini API", "TypeScript"],
+        technologies: ["Next.js", "Voltagent AI Framework", "Supabase Auth", "Supabase Database", "Gemini API", "TypeScript"],
         results: "Enhancing the learning experience for dental school applicants with instant AI-powered assistance across their application journey."
     },
     {

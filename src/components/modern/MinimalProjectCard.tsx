@@ -77,7 +77,7 @@ export default function MinimalProjectCard({ work, index }: MinimalProjectCardPr
                     className="inline-flex items-center gap-2 text-white mt-2 hover:gap-3 transition-all group/link w-fit"
                 >
                     <span className="border-b border-white/30 pb-0.5 group-hover/link:border-white transition-colors">
-                        View Project
+                        View Case Study
                     </span>
                     <ArrowUpRight className="w-4 h-4 text-neutral-400 group-hover/link:text-white transition-colors" />
                 </Link>

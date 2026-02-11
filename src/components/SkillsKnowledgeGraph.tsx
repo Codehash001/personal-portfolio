@@ -195,6 +195,7 @@ export default function SkillsKnowledgeGraph() {
 
     // Track 'z' key for zooming
     const zPressed = useRef(false);
+    const prevWidth = useRef(0);
 
     useEffect(() => {
         const handleKeyDown = (e: KeyboardEvent) => {
@@ -216,10 +217,14 @@ export default function SkillsKnowledgeGraph() {
         const updateSize = () => {
             if (containerRef.current) {
                 const rect = containerRef.current.getBoundingClientRect();
-                setDimensions({
-                    width: rect.width,
-                    height: Math.max(500, Math.min(rect.width * 0.75, 700)),
-                });
+                // Only update if width changes significantly (ignore scroll-induced height changes on mobile)
+                if (Math.abs(rect.width - prevWidth.current) > 5) {
+                    prevWidth.current = rect.width;
+                    setDimensions({
+                        width: rect.width,
+                        height: Math.max(500, Math.min(rect.width * 0.75, 700)),
+                    });
+                }
             }
         };
         updateSize();

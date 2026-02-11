@@ -4,7 +4,8 @@ import ServiceCard from "@/src/components/modern/ServiceCard";
 import EducationExperience from "@/src/components/modern/EducationExperience";
 import WorkSection from "@/src/components/WorkSection";
 import ContactSection from "@/src/components/ContactSection";
-import { Layers, LayoutTemplate, SquareTerminal, Cloud } from "lucide-react";
+import SkillsKnowledgeGraph from "@/src/components/SkillsKnowledgeGraph";
+import { Layers, LayoutTemplate, Cloud } from "lucide-react";
 import MobileNav from "@/src/components/MobileNav";
 
 export default function Home() {
@@ -93,6 +94,9 @@ export default function Home() {
 
           {/* 3. EDUCATION & EXPERIENCE */}
           <EducationExperience />
+
+          {/* SKILL UNIVERSE - Knowledge Graph */}
+          <SkillsKnowledgeGraph />
 
           {/* 4. SELECTED WORK */}
           <WorkSection />

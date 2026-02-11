@@ -146,6 +146,7 @@ const links: GraphLink[] = [
     { source: "p-fullstack", target: "typescript" },
     { source: "p-fullstack", target: "nodejs" },
     { source: "p-fullstack", target: "supabase" },
+    { source: "p-fullstack", target: "docker" },
 
     { source: "p-ai", target: "langchain" },
     { source: "p-ai", target: "openai" },
@@ -173,10 +174,11 @@ const links: GraphLink[] = [
     { source: "openai", target: "agents" },
 
     // DevOps links
-    { source: "me", target: "docker" },
+
     { source: "docker", target: "aws" },
     { source: "nextjs", target: "vercel" },
     { source: "aws", target: "cicd" },
+    { source: "github", target: "cicd" },
     { source: "vercel", target: "cicd" },
 ];
 

@@ -231,6 +231,8 @@ export default function SkillsKnowledgeGraph() {
     useEffect(() => {
         if (!svgRef.current) return;
         const { width, height } = dimensions;
+        const isMobile = width < 600;
+        const scale = isMobile ? 0.6 : 1;
 
         // Clear
         d3.select(svgRef.current).selectAll("*").remove();
@@ -297,12 +299,12 @@ export default function SkillsKnowledgeGraph() {
                         linkData as unknown as d3.SimulationLinkDatum<GraphNode>[]
                     )
                     .id((d) => (d as GraphNode).id)
-                    .distance(100)
-                    .strength(0.4)
+                    .distance(isMobile ? 55 : 100)
+                    .strength(0.5)
             )
-            .force("charge", d3.forceManyBody().strength(-300))
+            .force("charge", d3.forceManyBody().strength(isMobile ? -150 : -300))
             .force("center", d3.forceCenter(width / 2, height / 2))
-            .force("collision", d3.forceCollide().radius((d) => (d as GraphNode).size + 10))
+            .force("collision", d3.forceCollide().radius((d) => ((d as GraphNode).size * scale) + (isMobile ? 10 : 10)))
             .force("x", d3.forceX(width / 2).strength(0.05))
             .force("y", d3.forceY(height / 2).strength(0.05));
 
@@ -324,7 +326,7 @@ export default function SkillsKnowledgeGraph() {
             .data(linkData.filter((l) => l.label))
             .join("text")
             .text((d) => d.label || "")
-            .attr("font-size", 9)
+            .attr("font-size", 9 * scale)
             .attr("fill", "rgba(255,255,255,0.25)")
             .attr("text-anchor", "middle")
             .attr("font-family", "var(--font-geist-sans), sans-serif")
@@ -342,7 +344,7 @@ export default function SkillsKnowledgeGraph() {
         // Node circles
         node
             .append("circle")
-            .attr("r", (d) => d.size)
+            .attr("r", (d) => d.size * scale)
             .attr("fill", (d) => {
                 const color = d.color || typeColors[d.type] || "#666";
                 return d.type === "me" ? color : `${color}22`;
@@ -403,8 +405,8 @@ export default function SkillsKnowledgeGraph() {
             .append("text")
             .text((d) => d.label)
             .attr("text-anchor", "middle")
-            .attr("dy", (d) => d.size + 16)
-            .attr("font-size", (d) => (d.type === "me" ? 14 : d.size > 20 ? 12 : 10))
+            .attr("dy", (d) => (d.size * scale) + (isMobile ? 12 : 16))
+            .attr("font-size", (d) => (d.type === "me" ? 14 : d.size > 20 ? 12 : 10) * scale)
             .attr("font-weight", (d) => (d.type === "me" ? "700" : "500"))
             .attr("fill", (d) => {
                 const color = d.color || typeColors[d.type] || "#999";
@@ -585,14 +587,16 @@ export default function SkillsKnowledgeGraph() {
                 )}
 
                 {/* Legend */}
-                <div className="absolute top-4 right-4 flex flex-col gap-2 z-10">
+                <div className="absolute z-10 
+                    left-4 right-4 bottom-4 flex flex-wrap justify-center gap-x-4 gap-y-2 
+                    md:left-auto md:right-4 md:bottom-auto md:top-4 md:flex-col md:items-end md:gap-2">
                     {legendTypes.map(([type, label]) => (
                         <div key={type} className="flex items-center gap-1.5">
                             <span
-                                className="w-2.5 h-2.5 rounded-full"
+                                className="w-2.5 h-2.5 rounded-full shadow-[0_0_8px_rgba(0,0,0,0.5)]"
                                 style={{ backgroundColor: typeColors[type] }}
                             />
-                            <span className="text-[10px] text-neutral-500 uppercase tracking-wider font-medium">
+                            <span className="text-[10px] text-neutral-400 uppercase tracking-wider font-medium whitespace-nowrap">
                                 {label}
                             </span>
                         </div>

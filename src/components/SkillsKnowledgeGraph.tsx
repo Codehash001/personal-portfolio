@@ -303,7 +303,7 @@ export default function SkillsKnowledgeGraph() {
                     .strength(0.5)
             )
             .force("charge", d3.forceManyBody().strength(isMobile ? -150 : -300))
-            .force("center", d3.forceCenter(width / 2, height / 2))
+            .force("center", d3.forceCenter(width / 2, height / 2 - (isMobile ? 40 : 0)))
             .force("collision", d3.forceCollide().radius((d) => ((d as GraphNode).size * scale) + (isMobile ? 10 : 10)))
             .force("x", d3.forceX(width / 2).strength(0.05))
             .force("y", d3.forceY(height / 2).strength(0.05));
@@ -587,21 +587,35 @@ export default function SkillsKnowledgeGraph() {
                 )}
 
                 {/* Legend */}
-                <div className="absolute z-10 
-                    left-4 right-4 bottom-4 flex flex-wrap justify-center gap-x-4 gap-y-2 
-                    md:left-auto md:right-4 md:bottom-auto md:top-4 md:flex-col md:items-end md:gap-2">
+                {/* Desktop Legend */}
+                <div className="hidden md:flex absolute top-4 right-4 flex-col gap-2 z-10">
                     {legendTypes.map(([type, label]) => (
                         <div key={type} className="flex items-center gap-1.5">
                             <span
-                                className="w-2.5 h-2.5 rounded-full shadow-[0_0_8px_rgba(0,0,0,0.5)]"
+                                className="w-2.5 h-2.5 rounded-full"
                                 style={{ backgroundColor: typeColors[type] }}
                             />
-                            <span className="text-[10px] text-neutral-400 uppercase tracking-wider font-medium whitespace-nowrap">
+                            <span className="text-[10px] text-neutral-500 uppercase tracking-wider font-medium">
                                 {label}
                             </span>
                         </div>
                     ))}
                 </div>
+            </div>
+
+            {/* Mobile Legend (External) */}
+            <div className="flex md:hidden flex-wrap justify-center gap-x-4 gap-y-2 mt-6 px-4">
+                {legendTypes.map(([type, label]) => (
+                    <div key={type} className="flex items-center gap-1.5">
+                        <span
+                            className="w-2.5 h-2.5 rounded-full shadow-[0_0_8px_rgba(0,0,0,0.5)]"
+                            style={{ backgroundColor: typeColors[type] }}
+                        />
+                        <span className="text-[10px] text-neutral-400 uppercase tracking-wider font-medium whitespace-nowrap">
+                            {label}
+                        </span>
+                    </div>
+                ))}
             </div>
         </motion.div>
     );

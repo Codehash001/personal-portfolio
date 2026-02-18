@@ -509,6 +509,31 @@ export default function SkillsKnowledgeGraph() {
 
         // Tick
         simulation.on("tick", () => {
+            // Constrain nodes within bounds
+            nodeData.forEach((d) => {
+                if (d.x === undefined || d.y === undefined) return;
+
+                const r = d.size * scale;
+                // Approximate text width constraints
+                // Heuristic: char length * estimated char width * scale
+                const labelWidth = (d.label?.length || 0) * 8 * scale * 0.6;
+
+                // Horizontal clamping
+                // Ensure the node (radius) AND the label (half width) stay inside
+                const cushionX = Math.max(r, labelWidth) + 20; // 20px extra padding
+                d.x = Math.max(cushionX, Math.min(width - cushionX, d.x));
+
+                // Vertical clamping
+                // Top: just radius + padding
+                // Bottom: radius + label offset + padding
+                const labelOffset = r + (isMobile ? 12 : 16);
+                const fontSize = (d.type === "me" ? 14 : d.size > 20 ? 12 : 10) * scale;
+                const cushionYTop = r + 20;
+                const cushionYBottom = labelOffset + fontSize + 20;
+
+                d.y = Math.max(cushionYTop, Math.min(height - cushionYBottom, d.y));
+            });
+
             link
                 .attr("x1", (d) => ((d.source as unknown as GraphNode).x ?? 0))
                 .attr("y1", (d) => ((d.source as unknown as GraphNode).y ?? 0))
